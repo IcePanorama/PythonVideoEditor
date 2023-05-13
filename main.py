@@ -15,7 +15,8 @@ if __name__ == "__main__":
     try:
         video_files = get_input_vids(input_dir)
     except:
-        print("No videos to combine.\nPlease create a directory called input and add your videos there.")
+        print("No videos to combine.\nPlease create a directory called " +
+                input_dir + " and add your videos there.")
         sys.exit(-1)
 
     for video in video_files:
