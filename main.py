@@ -1,5 +1,6 @@
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 from os import listdir, path, makedirs
+import sys
 
 
 def get_input_vids(dir : str) -> list:
@@ -11,7 +12,11 @@ if __name__ == "__main__":
     video_files = []
     clips = []
 
-    video_files = get_input_vids(input_dir)
+    try:
+        video_files = get_input_vids(input_dir)
+    except:
+        print("No videos to combine.\nPlease create a directory called input and add your videos there.")
+        sys.exit(-1)
 
     for video in video_files:
         clips.append(VideoFileClip(input_dir + video))
